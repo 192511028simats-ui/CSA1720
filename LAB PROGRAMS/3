@@ -1,0 +1,22 @@
+def water_jug(cap1, cap2, target):
+    x, y = 0, 0
+
+    while x != target and y != target:
+        if x == 0:
+            x = cap1
+        elif y == cap2:
+            y = 0
+        else:
+            pour = min(x, cap2 - y)
+            x -= pour
+            y += pour
+
+        print(x, y)
+
+        if x == target or y == target:
+            print("Target reached!")
+            return
+
+    print("Target reached!")
+
+water_jug(4, 3, 2)
